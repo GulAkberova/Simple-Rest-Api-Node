@@ -1,7 +1,7 @@
 const express=require('express')
 const { default: mongoose } = require('mongoose')
 const productRouter=require('./routes/productRoutes')
-
+var cors = require("cors");
 const app=express()
 mongoose.connect('mongodb+srv://Gul:3421558Gul@cluster0.oxil0us.mongodb.net/minifullproject')
 .then(res=>{
@@ -13,6 +13,7 @@ mongoose.connect('mongodb+srv://Gul:3421558Gul@cluster0.oxil0us.mongodb.net/mini
 
 app.use(express.json())
 app.use(express.urlencoded())
+app.use(cors());
 
 app.use(function(req,res,next){
     if(false){
